@@ -28,19 +28,19 @@ Users should be able to:
 
 ### Screenshots
 
-Mobile:
+Mobile:  
 ![](/images/product-card-mobile-screenshot.png)
 
-Desktop:
+Desktop:  
 ![](/images/product-card-desktop-screenshot.png)
 
-On hover:
+On hover:  
 ![](/images/product-card-hover-screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/MelissaZhuu/product-preview-card-component-main](https://github.com/MelissaZhuu/product-preview-card-component-main)
+- Live Site URL: [https://melissazhuu.github.io/product-preview-card-component-main/](https://melissazhuu.github.io/product-preview-card-component-main/)
 
 ## My process
 
@@ -51,59 +51,50 @@ On hover:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- Sass preprocessor
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+I learned a lot about mobile-first and responsive design in this project, mainly how to include responsive images. I also learned about CSS Grid and used a mix of Grid and Flexbox in my styling.
 
-To see how you can add code snippets, see below:
+I had some issues with responsive images that taught me a lot. At first, I was trying to use 'srcset' and 'sizes' attributes to display my two images and was having trouble getting the browser to choose the right image. It was a weird situation since the larger, desktop image had a smaller width than the zoomed-in, mobile image. 
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+    <img class="product-image" 
+    src="images/image-product-mobile.jpg" 
+    srcset="images/image-product-mobile.jpg 686w, 
+            images/image-product-desktop.jpg 600w"
+    sizes="(max-width: 600px) 686px, 600px"
+    alt="A square bottle of Chanel Gabrielle Perfume and some leaves on a white surface">
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+Upon further researching, I found that I was focused on 'resolution switching' when I should have been addressing the 'art direction' and using the 'picture' element, which allows you to specify which media conditions should use which image.
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+```html
+    <picture>
+      <source media="(max-width: 599px)" srcset="images/image-product-mobile.jpg" />
+      <source media="(min-width: 600px)" srcset="images/image-product-desktop.jpg" />
+      <img src="images/image-product-desktop.jpg" alt="A square bottle of Chanel Gabrielle Perfume and some leaves on a white surface" class="product-image"/>
+    </picture>
+```
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+In future projects, I would like to continue to familiarize myself with responsive design best practices and become comfortable with making all kinds of content types, whether that's text, images, icons or videos, look amazing on all screens.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+Resources that helped me understand responsive images:  
+- [LiveFire Dev - Optimizing images](https://livefiredev.com/optimize-image-without-loss-of-quality/)
+- [LiveFire Dev - Using srcset](https://livefiredev.com/srcset-not-working-getting-wrong-images/)
+- [MDN Web Docs - Responsive images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) - This one was particularly helpful.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+Resources that helped me with CSS Grid:  
+- [CSS Tricks - Guide to CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+- [Learn CSS Grid](https://learncssgrid.com/)
+- [Josh Comeau - An Interactive Guide to CSS Grid](https://www.joshwcomeau.com/css/interactive-guide-to-grid/) - This site is not only built really cool but was the most helpful for me due to its interactive examples and explanations! Definitely worth checking out.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Website - [Github](https://github.com/MelissaZhuu)
+- Frontend Mentor - [@MelissaZhuu](https://www.frontendmentor.io/profile/MelissaZhuu)
