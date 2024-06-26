@@ -1,0 +1,143 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+// Primary Colors
+$dark-cyan: hsl(158, 36%, 37%);
+$cream: hsl(30, 38%, 92%);
+$dark-green: hsl(159, 46%, 16%);
+
+// Neutral Colors
+$very-dark-blue: hsl(212, 21%, 14%);
+$dark-grayish-blue: hsl(228, 12%, 48%);
+$white: hsl(0, 0%, 100%);
+
+// Font
+$body: 14px;
+
+$montserrat: "Montserrat", sans-serif;
+$fraunces: "Fraunces", serif;
+
+$medium: 500;
+$bold: 700;
+
+@mixin font($family, $weight, $size, $color) {
+  font-family: $family;
+  font-weight: $weight;
+  font-size: $size;
+  color: $color;
+  padding-bottom: 1rem;
+}
+
+h1 {
+  @include font($fraunces, $bold, 2rem, $very-dark-blue);
+  line-height: 1;
+}
+
+h2, p {
+  @include font($montserrat, $medium, $body, $dark-grayish-blue);
+  line-height: 1.5;
+  &.original-price {
+    text-decoration: line-through;
+  }
+  &.current-price {
+    @include font($fraunces, $bold, 2rem, $dark-cyan);
+  }
+}
+
+body {
+  background-color: $cream;
+  font-size: 62.5%;
+  
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 10fr 1fr;
+  place-items: center;
+  height: 100vh;
+}
+
+.card {
+  background-color: $white;
+  border-radius: 0.8rem;
+  width: 21.5rem;
+  height: auto;
+
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto 1fr;
+  
+  img.product-image {
+    border-radius: 0.8rem 0.8rem 0 0;
+    width: 100%;
+  }
+
+  .content {
+    padding: 1.6rem;
+
+    h2 {
+      letter-spacing: 0.3rem;
+    }
+
+    .prices {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .add-to-cart-button {
+      border: none;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      
+      @include font($montserrat, $bold, 0.9rem, $white);
+      background-color: $dark-cyan;
+      
+      .shopping-cart-icon {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      &:hover {
+        background-color: $dark-green;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.attribution { 
+  font-size: 0.6rem; 
+  text-align: center; 
+  padding: 0 1rem 0 1rem;
+
+  a {
+    color: $dark-cyan;
+  }
+}
+
+@media (width > 600px) {
+  .card {
+    width: 36rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100%;
+
+    img.product-image {
+      border-radius: 0.8rem 0 0 0.8rem;
+      height: 100%;
+    }
+
+    .content {
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+  }
+}
